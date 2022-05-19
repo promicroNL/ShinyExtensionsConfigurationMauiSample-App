@@ -12,13 +12,17 @@ public partial class MainPage : ContentPage
         _configuration = configuration;
     }
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private void OnButtonClick(object sender, EventArgs e)
 	{
-        CounterBtn.Text = _configuration["myAppSetting"];
+        ConfigKeyBtn.Text = _configuration["myAppSetting"];
 
-        SemanticScreenReader.Announce(CounterBtn.Text);
+        SemanticScreenReader.Announce(ConfigKeyBtn.Text);
 
-        _configuration["myAppSetting"] += "->Bye";
-	}
+        if (_configuration["myAppSetting"] == "Hello")
+            _configuration["myAppSetting"] = "Bye";
+        else
+            _configuration["myAppSetting"] = "Hello";
+
+    }
 }
 

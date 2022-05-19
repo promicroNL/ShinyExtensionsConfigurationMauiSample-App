@@ -14,8 +14,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
 
         builder.Configuration.AddConfiguration(config);
-
-        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddTransient<MainPage>();
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
